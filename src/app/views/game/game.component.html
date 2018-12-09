@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-4">
+      <div class="card" >
+              <h5 class="card-header">
+                  Players
+                  <i *ngIf="playerId() !== null">(Welcome {{state.players[playerId()].name}})</i>
+              </h5>
+              <ul class="list-group list-group-flush">
+                  <li *ngFor="let p of state.players"
+                      class="list-group-item">
+                      <img src="`https://graph.facebook.com/${p.fbid}/picture`" />
+                      <h5>{{p.name}}</h5>
+                      <span *ngIf="p.id == state.dealerId" class="badge badge-success">
+                          Dealer
+                      </span> &nbsp;
+                      <span class="badge badge-primary badge-pill">{{p.score}}</span>
+                  </li>
+
+              </ul>
+      </div>
+</div>
